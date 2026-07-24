@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, TextInput, Image, SafeAreaView, Touchab
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../config/firebase";
 const backImage = require("../assets/backImage.png");
+const chatzyLogo = require("../assets/chatzy_logo.png");
 
 export default function Login({ navigation }) {
 
@@ -21,6 +22,7 @@ export default function Login({ navigation }) {
       <Image source={backImage} style={styles.backImage} />
       <View style={styles.whiteSheet} />
       <SafeAreaView style={styles.form}>
+        <Image source={chatzyLogo} style={styles.logo} />
         <Text style={styles.title}>Log In</Text>
          <TextInput
         style={styles.input}
@@ -60,6 +62,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  logo: {
+    width: 80,
+    height: 80,
+    alignSelf: 'center',
+    marginBottom: 16,
+    resizeMode: 'contain',
   },
   title: {
     fontSize: 36,

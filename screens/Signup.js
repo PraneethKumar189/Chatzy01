@@ -7,6 +7,7 @@ import { auth, database } from '../config/firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import { useNavigation } from '@react-navigation/native';
 
+const chatzyLogo = require("../assets/chatzy_logo.png");
 
 export default function Signup() {
   const [email, setEmail] = useState('');
@@ -35,6 +36,7 @@ export default function Signup() {
   return (
     <View style={styles.container}>
       <SafeAreaView style={styles.form}>
+        <Image source={chatzyLogo} style={styles.logo} />
         <Text style={styles.title}>Sign Up</Text>
         <TextInput
           style={styles.input}
@@ -82,6 +84,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  logo: {
+    width: 80,
+    height: 80,
+    alignSelf: 'center',
+    marginBottom: 16,
+    resizeMode: 'contain',
   },
   title: {
     fontSize: 36,
@@ -131,3 +140,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+

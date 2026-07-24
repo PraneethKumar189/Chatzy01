@@ -1,11 +1,13 @@
 import React, { useState, useEffect,useRef } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
+import { View, TouchableOpacity, Text, Image, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { auth, database } from '../config/firebase';
 import { Entypo } from '@expo/vector-icons';
 import colors from '../colors';
 import Divider from './divider';
+
+const chatzyLogo = require("../assets/chatzy_logo.png");
 
 const Home = () => {
   const navigation = useNavigation();
@@ -93,7 +95,10 @@ const Home = () => {
   return (
     <View style={styles.container}>
   <Divider/>
-      <Text style={{fontSize:20,marginLeft:150,}}>Chatzy</Text>
+      <View style={styles.headerRow}>
+        <Image source={chatzyLogo} style={styles.headerLogo} />
+        <Text style={styles.headerTitle}>Chatzy</Text>
+      </View>
       <Divider/>
        <TouchableOpacity
         style={styles.profileButton}
@@ -135,7 +140,23 @@ const styles = StyleSheet.create({
     marginTop:100
      
   },
-  
+  headerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 8,
+  },
+  headerLogo: {
+    width: 36,
+    height: 36,
+    resizeMode: 'contain',
+    marginRight: 8,
+  },
+  headerTitle: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: colors.primary,
+  },
   nam:{
     position: 'absolute',
     top: 40,
@@ -189,3 +210,4 @@ const styles = StyleSheet.create({
 });
 
 export default Home;
+
