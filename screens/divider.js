@@ -1,15 +1,23 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import colors from '../colors';
 
 const Divider = () => {
-  return <View style={styles.divider} />;
+  return (
+    <View style={styles.dividerContainer}>
+      <View style={styles.dividerLine} />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-  divider: {
-    height: 1, // Height of the line
-    backgroundColor: '#cccccc', // Color of the line
-    marginVertical: 10, // Space around the line
+  dividerContainer: {
+    paddingHorizontal: 20,
+  },
+  dividerLine: {
+    height: 1,
+    backgroundColor: colors.border,
+    marginVertical: 4,
   },
 });
 

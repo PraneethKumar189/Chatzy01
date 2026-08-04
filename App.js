@@ -63,8 +63,8 @@ useEffect(() => {
   }, [user]);
 if (isLoading) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size='large' />
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#0F0F1A' }}>
+        <ActivityIndicator size='large' color='#6C63FF' />
       </View>
     );
   }
